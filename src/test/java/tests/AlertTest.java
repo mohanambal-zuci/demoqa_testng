@@ -42,7 +42,7 @@ public class AlertTest extends TestBase {
         alert.accept();
     }
 
-    @Test(description = "Delayed alert Validation")
+    @Test(description = "Confirm alert Validation")
     public void confirmAlertTest() {
         driver.get("https://demoqa.com/");
         AlertPage alerts = new AlertPage(driver);
