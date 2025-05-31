@@ -35,7 +35,7 @@ public class LoginPage {
         ElementUtils.type(passWord,password);
     }
     public void clickButton(){
-        ElementUtils.click(clickButton);
+        ElementUtils.click(clickButton,driver);
     }
     public String errorMessage(){
       return ElementUtils.getElementText(errorMessage);

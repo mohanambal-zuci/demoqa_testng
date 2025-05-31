@@ -13,7 +13,7 @@ public class TestBase {
     @BeforeMethod
     public void setUp(@Optional("chrome") String browser) {
         driver = DriverFactory.initDriver(browser);
-        driver.get("https://demoqa.com/login");
+        driver.get("https://demoqa.com");
     }
 
     @AfterMethod
