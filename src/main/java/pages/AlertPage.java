@@ -8,14 +8,14 @@ import utils.ElementUtils;
 
 public class AlertPage {
 
-    private final WebDriver driver;
+    WebDriver driver;
 
     public AlertPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "(//div[contains(@class,'card mt-4')])[3]")
+    @FindBy(xpath = "//div[@class='card-body']//h5[contains(text(),\"Alerts, Frame & Windows\")]")
     private WebElement alertCard;
 
     @FindBy(xpath = "//li[contains(.,'Alerts')]")

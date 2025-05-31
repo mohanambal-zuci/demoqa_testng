@@ -27,7 +27,6 @@ public class LoginPage {
     private WebElement errorMessage;
 
 
-
     public void enterUserName(String username){
         ElementUtils.type(userName,username);
     }
