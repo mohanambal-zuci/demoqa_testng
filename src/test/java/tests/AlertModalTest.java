@@ -7,21 +7,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AlertPage;
+import pages.AlertModalPage;
 import testbase.TestBase;
 
 import java.time.Duration;
 
 @Feature("Alerts Validation")
-public class AlertTest extends TestBase {
+public class AlertModalTest extends TestBase {
 
     @Test(description = "Simple alert Validation")
     public void simpleAlert() {
         driver.get("https://demoqa.com/");
-        AlertPage alertPage = new AlertPage(driver);
+        AlertModalPage alertModalPage = new AlertModalPage(driver);
 
-        alertPage.navigateToAlertSection();
-        alertPage.triggerSimpleAlert();
+        alertModalPage.navigateToAlertSection();
+        alertModalPage.triggerSimpleAlert();
 
         Alert alert = driver.switchTo().alert();
         Assert.assertEquals(alert.getText(), "You clicked a button"); // optional assertion
@@ -31,8 +31,7 @@ public class AlertTest extends TestBase {
     @Test(description = "Delayed alert Validation")
     public void delayedAlertTest() {
         driver.get("https://demoqa.com/");
-        AlertPage alerts = new AlertPage(driver);
-
+        AlertModalPage alerts = new AlertModalPage(driver);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         alerts.navigateToAlertSection();
@@ -45,7 +44,7 @@ public class AlertTest extends TestBase {
     @Test(description = "Confirm alert Validation")
     public void confirmAlertTest() {
         driver.get("https://demoqa.com/");
-        AlertPage alerts = new AlertPage(driver);
+        AlertModalPage alerts = new AlertModalPage(driver);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -55,4 +54,29 @@ public class AlertTest extends TestBase {
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
     }
+
+    @Test(description ="Small Modal Validation")
+    public void smallModal(){
+        driver.get("https://demoqa.com/");
+        AlertModalPage modals = new AlertModalPage(driver);
+        modals.navigateToModalSection();
+        modals.triggerDialogModal();
+        modals.triggerSmallModal();
+        String title = modals.getSmallModalTitle();
+        Assert.assertEquals(title, "Small Modal", "Modal title mismatch");
+        modals.closeSmallModal();
+    }
+
+    @Test(description ="Large Modal Validation")
+    public void largeModal(){
+        driver.get("https://demoqa.com/");
+        AlertModalPage modals = new AlertModalPage(driver);
+        modals.navigateToModalSection();
+        modals.triggerDialogModal();
+        modals.triggerLargeModal();
+        String title = modals.getLargeModalTitle();
+        Assert.assertEquals(title, "Large Modal", "Modal title mismatch");
+        modals.closeLargeModal();
+    }
+
 }

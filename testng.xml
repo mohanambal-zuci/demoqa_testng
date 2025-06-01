@@ -4,7 +4,7 @@
     <test name="RegressionTests">
         <classes>
             <class name="tests.LoginTest"/>
-            <class name="tests.AlertTest"/>
+            <class name="tests.AlertModalTest"/>
             <class name="tests.ElementsTest"/>
         </classes>
     </test>
