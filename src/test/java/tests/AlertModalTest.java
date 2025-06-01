@@ -32,7 +32,7 @@ public class AlertModalTest extends TestBase {
     public void delayedAlertTest() {
         driver.get("https://demoqa.com/");
         AlertModalPage alerts = new AlertModalPage(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         alerts.navigateToAlertSection();
         alerts.triggerDelayedAlert();
