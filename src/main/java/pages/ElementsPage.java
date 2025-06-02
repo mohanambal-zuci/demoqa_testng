@@ -34,4 +34,7 @@ public class ElementsPage {
     public void clickButton() {
         ElementUtils.click(dynamicButton,driver);
     }
+    public WebElement getDynamicButton(){
+        return dynamicButton;
+    }
 }
