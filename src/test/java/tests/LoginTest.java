@@ -18,7 +18,7 @@ import java.time.Duration;
 @Listeners({ AllureTestNg.class })
 public class LoginTest extends TestBase {
 
-    @Test(description = "Valid Login Test with correct credentials")
+    @Test(description = "Valid Login Test with correct credentials",priority = 1)
     @Severity(SeverityLevel.CRITICAL)
     @Story("Valid login scenario")
         public void validLogin(){
@@ -35,7 +35,7 @@ public class LoginTest extends TestBase {
         Assert.assertEquals(currentUrl, "https://demoqa.com/profile", "Login failed or redirect did not happen");
     }
 
-    @Test(description = "Invalid Login Test with wrong credentials")
+    @Test(description = "Invalid Login Test with wrong credentials", priority = 2)
     @Severity(SeverityLevel.NORMAL)
     @Story("Invalid login scenario")
     public void invalidLogin() {

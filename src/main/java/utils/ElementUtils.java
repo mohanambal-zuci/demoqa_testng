@@ -49,4 +49,9 @@ public class ElementUtils {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
+    public static void sendKeys(WebElement ele, String text){
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(ele)).sendKeys(text);
+    }
 }
