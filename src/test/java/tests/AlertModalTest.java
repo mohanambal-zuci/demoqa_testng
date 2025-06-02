@@ -32,12 +32,14 @@ public class AlertModalTest extends TestBase {
     public void delayedAlertTest() {
         driver.get("https://demoqa.com/");
         AlertModalPage alerts = new AlertModalPage(driver);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         alerts.navigateToAlertSection();
         alerts.triggerDelayedAlert();
-
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        String alertText = alert.getText();
+        Assert.assertEquals(alertText, "This alert appeared after 5 seconds");
+
         alert.accept();
     }
 
@@ -53,6 +55,9 @@ public class AlertModalTest extends TestBase {
 
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
         alert.accept();
+
+        String confirmResult = alerts.getConfirmResultText();
+        Assert.assertEquals(confirmResult, "You selected Ok");
     }
 
     @Test(description ="Small Modal Validation")

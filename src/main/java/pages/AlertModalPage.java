@@ -33,6 +33,13 @@ public class AlertModalPage {
         ElementUtils.click(simpleAlert, driver);
     }
 
+    @FindBy(id = "confirmResult")
+    private WebElement confirmResult;
+
+    public String getConfirmResultText() {
+        return ElementUtils.getElementText(confirmResult);
+    }
+
     @FindBy(id = "timerAlertButton")
     private WebElement timerAlertButton;
 
